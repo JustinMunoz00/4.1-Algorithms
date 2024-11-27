@@ -10,6 +10,7 @@ public class Algorithms {
         int odds = odds();
         int evens = evens();
         System.out.println(odds);
+        System.out.println(evens);
         s.close();
     }
 
@@ -22,4 +23,15 @@ public class Algorithms {
         }
         return odds;
     }
+
+    public static int evens() throws FileNotFoundException{
+        s = new Scanner(f);
+        int evens = 0;
+        while (s.hasNext()) {
+            if (s.nextInt() % 2 == 0)
+                evens++;
+        }
+        return evens;
+    }
+
 }
