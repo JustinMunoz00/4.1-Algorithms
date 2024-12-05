@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,6 +16,7 @@ public class Algorithms {
         int least = least();
         int sum = sum();
         double average = average();
+        String mode = mode();
         System.out.println(odds);
         System.out.println(evens);
         System.out.println(twoDigits);
@@ -25,6 +25,7 @@ public class Algorithms {
         System.out.println(least);
         System.out.println(sum);
         System.out.println(average);
+        System.out.println(mode);
         s.close();
     }
 
@@ -113,7 +114,30 @@ public class Algorithms {
         return (int)((sum()*1000.0/total))/1000.0;
     }
 
-    public static int mode() throws FileNotFoundException{
-        return 0;
+    public static String mode() throws FileNotFoundException{
+        s = new Scanner(f);
+        HashMap<Integer, Integer> nums = new HashMap<Integer, Integer>();
+        int x;
+        while (s.hasNextInt()){
+            x = s.nextInt();
+            if (nums.isEmpty()){
+                nums.put(x, 1);
+            } else if (nums.containsKey(x)){
+                nums.replace(x, nums.get(x) + 1);
+            } else nums.put(x, 1);
+        }
+        String s = "";
+        int greatest = 0;
+        for (Integer i : nums.keySet()){
+            if (nums.get(i) > greatest) {
+                greatest = nums.get(i);
+                s = "" + i;
+            }
+            else if (nums.get(i) == greatest){
+                s+= ", " + i;
+            }
+
+        }
+        return s;
     }
 }
