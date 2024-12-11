@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 public class Algorithms {
     private static File f;
     private static Scanner s;
+
     public static void main(String[] args) throws FileNotFoundException {
         f = new File("Numbers.txt");
         int odds = odds();
@@ -17,15 +18,15 @@ public class Algorithms {
         int sum = sum();
         double average = average();
         String mode = mode();
-        System.out.println(odds);
-        System.out.println(evens);
-        System.out.println(twoDigits);
-        System.out.println(greaterThan500);
-        System.out.println(greatest);
-        System.out.println(least);
-        System.out.println(sum);
-        System.out.println(average);
-        System.out.println(mode);
+        System.out.println("Odds: " + odds);
+        System.out.println("Evens: " + evens);
+        System.out.println("Two digit nums: " + twoDigits);
+        System.out.println("Nums greater than 500: " + greaterThan500);
+        System.out.println("Max: " + greatest);
+        System.out.println("Min: " + least);
+        System.out.println("Sum: " + sum);
+        System.out.println("Mean: " + average);
+        System.out.println("Modes: " + mode);
         s.close();
     }
 
